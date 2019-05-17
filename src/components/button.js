@@ -1,10 +1,18 @@
 import React from "react";
-import {Text} from "react-native";
+import {Text, TouchableOpacity} from "react-native";
 
-const Button = function() {
+const Button = function ({text}) {
 
-    return <Text>Click me!</Text>
+    return <TouchableOpacity onPress={()=>console.log("I was clicked")}>
+        <Text> {text} </Text>
+    </TouchableOpacity>
 
 };
 
 export default Button;
+
+const style = {
+    buttonStyle: {
+        // flex
+    }
+};
