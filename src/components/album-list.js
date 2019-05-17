@@ -8,14 +8,26 @@ import axios from "axios";
 class AlbumList extends React.Component {
 
     state = {
-        albums: []
+        albums: [],
+        selectedAlbum: ""
     };
 
     renderAlbums() {
         return this.state.albums.map((album) => {
-            return <AlbumDetail album={album} key={album.url}/>
+            return <AlbumDetail
+                album={album}
+                key={album.url}
+                clickHandler={this.selectAlbum}/>
         });
     }
+
+    selectAlbum = (selectedAlbum) => {
+
+        console.log(selectedAlbum);
+        this.setState(()=>{
+            selectedAlbum:selectedAlbum
+        })
+    };
 
     componentWillMount() {
 

@@ -4,7 +4,7 @@ import Card from "./card.js";
 import CardSection from "./card-section.js";
 import Button from "./button.js";
 
-const AlbumDetail = function ({album}) {
+const AlbumDetail = function ({album,clickHandler}) {
 
     const {headerContentStyle, imageStyle, titleStyle, albumArtStyle} = styles;
     const {title, artist, thumbnail_image, image} = album;
@@ -23,7 +23,7 @@ const AlbumDetail = function ({album}) {
             <Image source={{uri: image}} style={albumArtStyle}/>
         </CardSection>
         <CardSection>
-            <Button text={"Click me!"}/>
+            <Button text={"Click me!"} handler={() => clickHandler(title)}/>
         </CardSection>
     </Card>
 };
