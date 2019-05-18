@@ -28,7 +28,9 @@ const AlbumDetail = function ({album}) {
             <Image source={{uri: image}} style={albumArtStyle}/>
         </CardSection>
         <CardSection>
-            <Button text={"Click me!"} handler={() => Linking.openURL(url)}/>
+            <Button handler={() => Linking.openURL(url)}>
+                Click me to buy an album!
+            </Button>
         </CardSection>
     </Card>
 };
