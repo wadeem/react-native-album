@@ -1,6 +1,5 @@
 import React from "react";
 import {Text, ScrollView, Image} from "react-native";
-import AlbumData from "./album-data.js";
 import AlbumDetail from "./album-detail.js";
 import axios from "axios";
 
@@ -17,17 +16,9 @@ class AlbumList extends React.Component {
             return <AlbumDetail
                 album={album}
                 key={album.url}
-                clickHandler={this.selectAlbum}/>
+                />
         });
     }
-
-    selectAlbum = (selectedAlbum) => {
-
-        console.log(selectedAlbum);
-        this.setState(()=>{
-            selectedAlbum:selectedAlbum
-        })
-    };
 
     componentWillMount() {
 

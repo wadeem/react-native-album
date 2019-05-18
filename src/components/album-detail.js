@@ -1,13 +1,18 @@
 import React from "react";
-import {Text, View, Image} from "react-native";
+import {Text, View, Image, Linking} from "react-native";
 import Card from "./card.js";
 import CardSection from "./card-section.js";
 import Button from "./button.js";
 
-const AlbumDetail = function ({album,clickHandler}) {
+const AlbumDetail = function ({album}) {
 
-    const {headerContentStyle, imageStyle, titleStyle, albumArtStyle} = styles;
-    const {title, artist, thumbnail_image, image} = album;
+    const {
+        headerContentStyle,
+        imageStyle,
+        albumArtStyle,
+        titleStyle
+    } = styles;
+    const {title, artist, thumbnail_image, image, url} = album;
 
     return <Card>
         <CardSection>
@@ -23,7 +28,7 @@ const AlbumDetail = function ({album,clickHandler}) {
             <Image source={{uri: image}} style={albumArtStyle}/>
         </CardSection>
         <CardSection>
-            <Button text={"Click me!"} handler={() => clickHandler(title)}/>
+            <Button text={"Click me!"} handler={() => Linking.openURL(url)}/>
         </CardSection>
     </Card>
 };
@@ -38,6 +43,7 @@ const styles = {
     titleStyle: {
         fontSize: 17
     },
+
 
     imageStyle: {
         height: 40,
